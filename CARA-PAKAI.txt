@@ -1,0 +1,29 @@
+🎉 DEPLOY WEBSITES KE CLOUDFLARE PAGES 🎉
+===========================================
+
+Website sudah bersih & siap 100% untuk di-deploy ke Cloudflare Pages!
+(Tampilan QR & IP lokal sudah dihapus sepenuhnya).
+
+-------------------------------------------
+CARA DEPLOY 1: TANPA CODING (Dashboard Cloudflare)
+-------------------------------------------
+1. Buka https://dash.cloudflare.com/
+2. Pilih menu "Workers & Pages" di sebelah kiri.
+3. Klik "Create application" -> tab "Pages" -> pilih "Upload assets".
+4. Ketik Nama Project: misal "sekar-birthday".
+5. Drag & Drop folder /home/kacungsocrates/Documents/web_HB_Sekar
+6. Klik "Deploy".
+7. SELESAI! Website langsung aktif di https://sekar-birthday.pages.dev 💖
+
+-------------------------------------------
+CARA DEPLOY 2: VIA TERMINAL (Wrangler CLI)
+-------------------------------------------
+Jalankan di terminal:
+  cd /home/kacungsocrates/Documents/web_HB_Sekar
+  npx wrangler login
+  npx wrangler pages deploy . --project-name=sekar-birthday
+
+-------------------------------------------
+FILE ZIP SIAP UPLOAD:
+-------------------------------------------
+- Zip Web (siap deploy): /home/kacungsocrates/Documents/web_HB_Sekar.zip

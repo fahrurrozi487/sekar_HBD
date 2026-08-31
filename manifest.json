@@ -1,0 +1,13 @@
+{
+  "name": "Happy Birthday Sekar 🐱",
+  "short_name": "Sekar BDay",
+  "description": "Website ulang tahun interaktif untuk Sekar — penuh kejutan, foto, dan nuansa kucing.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#F0F9FF",
+  "theme_color": "#3B82F6",
+  "icons": [
+    { "src": "assets/favicon.png", "sizes": "64x64", "type": "image/png" },
+    { "src": "assets/og-image.jpg", "sizes": "1200x630", "type": "image/jpeg" }
+  ]
+}

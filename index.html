@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Happy Birthday, Sekar!</title>
+<meta name="description" content="Kejutan ulang tahun digital untuk Sekar — amplop, galeri kenangan, surat, dan tiup lilin virtual.">
+<meta name="theme-color" content="#3B82F6">
+<meta name="color-scheme" content="light">
+<meta name="author" content="Bestie Sekar">
+<meta name="robots" content="noindex, nofollow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Happy Birthday, Sekar!">
+<meta property="og:description" content="Ada kejutan digital spesial buat kamu, Sekar! Buka amplopnya dan rasakan sendiri.">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Happy Birthday, Sekar!">
+<meta name="twitter:description" content="Kejutan digital penuh cinta — galeri, surat, dan tiup lilin.">
+<meta name="twitter:image" content="assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="manifest" href="manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<link rel="preload" href="assets/sekar-01.jpg" as="image" fetchpriority="high">
+<link rel="preload" href="style.css" as="style">
+<link rel="preload" href="script.js" as="script">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<audio id="bgMusic" loop preload="auto" playsinline>
+  <source src="assets/music.mp3" type="audio/mpeg">
+  <source src="assets/music.ogg" type="audio/ogg">
+</audio>
+
+<button id="muteBtn" class="mute-btn" aria-label="Toggle music">&#9836;</button>
+
+<div class="bg-blobs" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<canvas id="confettiCanvas"></canvas>
+
+<!-- ===== LANDING ===== -->
+<section id="landing" class="landing">
+  <div class="balloons" aria-hidden="true">
+    <span class="balloon b1">🌸</span>
+    <span class="balloon b2">🐱</span>
+    <span class="balloon b3">🌸</span>
+    <span class="balloon b4">🐾</span>
+    <span class="balloon b5">🌸</span>
+  </div>
+
+  <div class="landing-card">
+    <p class="landing-eyebrow">ada surat spesial buat kamu 🌸 🐾</p>
+    <div class="envelope-wrap" id="envelopeWrap">
+      <div class="envelope" id="envelope">
+        <div class="envelope-flap"></div>
+        <div class="envelope-body"></div>
+        <div class="envelope-letter">
+          <span class="letter-emoji">🐱</span>
+          <p>Untuk Sekar</p>
+        </div>
+        <div class="envelope-seal">🌸</div>
+      </div>
+    </div>
+
+    <h1 class="landing-title">Hai, Sekar! 🐱🌸</h1>
+    <p class="landing-subtitle">Aku punya kejutan kecil buat hari spesialmu.<br>Siap dibuka?</p>
+
+    <button id="openBtn" class="cta-btn">
+      Buka Kejutan 🌸 🐾
+      <span class="cta-shine"></span>
+    </button>
+    <p class="landing-hint">pakai headset biar lebih seru~ meow!</p>
+  </div>
+
+  <div class="landing-confetti" aria-hidden="true">
+    <span>🌸</span><span>🐾</span><span>🐱</span><span>🌸</span><span>🐾</span><span>🐟</span>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main id="mainContent" class="main hidden">
+  <div class="progress-wrap"><div id="progressBar" class="progress-bar"></div></div>
+
+  <nav class="dots-nav" aria-label="navigasi section">
+    <a href="#ucapan" class="dot active" data-label="Ucapan"></a>
+    <a href="#galeri" class="dot" data-label="Galeri"></a>
+    <a href="#kejutan" class="dot" data-label="Kejutan"></a>
+    <a href="#surat" class="dot" data-label="Surat"></a>
+    <a href="#penutup" class="dot" data-label="Tiup Lilin"></a>
+  </nav>
+
+  <!-- ===== UCAPAN ===== -->
+  <section id="ucapan" class="section ucapan">
+    <div class="container">
+      <div class="ucapan-badge">Hari ini hari kamu! 🐾</div>
+      <h2 class="birthday-title" id="birthdayTitle">
+        <span class="line line-1">Happy</span>
+        <span class="line line-2">Birthday,</span>
+        <span class="line line-3 sekar" id="sekarName">Sekar! 🎂</span>
+      </h2>
+      <div class="typewriter-wrap">
+        <p id="typewriter" class="typewriter"></p><span class="cursor">|</span>
+      </div>
+      <p class="ucapan-desc reveal">
+        Terima kasih sudah jadi bestie paling tulus, paling receh, dan paling nyenengin.
+        Semoga semua hal baik datang ke kamu hari ini dan seterusnya!
+      </p>
+      <div class="ucapan-cards">
+        <div class="mini-card c1 reveal">🌸 <strong>Sehat & Happy</strong><span>selalu ceria & energi positif</span></div>
+        <div class="mini-card c2 reveal">🐾 <strong>Mimpi Tercapai</strong><span>satu-satu jadi kenyataan</span></div>
+        <div class="mini-card c3 reveal">🐱 <strong>Disayang Banyak Orang</strong><span>karena kamu emang se-lovely itu</span></div>
+      </div>
+      <div class="floating-emojis" aria-hidden="true">
+        <span class="fe fe1">🌸</span><span class="fe fe2">🐱</span><span class="fe fe3">🌸</span><span class="fe fe4">🐾</span><span class="fe fe5">🌸</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALERI ===== -->
+  <section id="galeri" class="section galeri">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">9 Kenangan Kita 🐾</p>
+        <h2>Galeri Polaroid</h2>
+        <p class="section-sub">Tap foto-nya ya! Ada cerita kecil di balik setiap foto. <br><small>(tap lagi untuk flip, geser untuk drag di desktop)</small></p>
+      </div>
+      <div class="polaroid-grid" id="polaroidGrid"></div>
+      <div class="galeri-hint">
+        <span>Coba tap foto ke-7 atau judul di atas 5x... ada easter egg! 🐱</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <button class="lightbox-prev" id="lightboxPrev">&lsaquo;</button>
+    <button class="lightbox-next" id="lightboxNext">&rsaquo;</button>
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="" loading="lazy" decoding="async">
+      <div class="lightbox-caption">
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxDesc"></p>
+        <span id="lightboxDate"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== KEJUTAN ===== -->
+  <section id="kejutan" class="section kejutan">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Zona Kejutan 🐾</p>
+        <h2>Siap dapet kejutan?</h2>
+        <p class="section-sub">Ada 3 kejutan tersembunyi. Bisa kamu temuin semua?</p>
+      </div>
+
+      <div class="surprise-grid">
+        <div class="surprise-card sc1 reveal">
+          <div class="sc-icon">🐱</div>
+          <h3>Kejutan #1</h3>
+          <p>Tombol ini keliatannya nggak penting...</p>
+          <button id="secretConfettiBtn" class="pill-btn">Pencet aku dong~</button>
+          <small id="confettiCount">Sudah dipencet 0x</small>
+        </div>
+
+        <div class="surprise-card sc2 reveal">
+          <div class="sc-icon">🐟</div>
+          <h3>Tangkap Ikan!</h3>
+          <p>Tangkap semua ikan secepat mungkin dalam 10 detik!</p>
+          <div id="balloonGameArea" class="balloon-game-area">
+            <div class="game-stats">
+              <span>Score: <b id="gameScore">0</b>/9</span>
+              <span>Time: <b id="gameTime">10</b>s</span>
+            </div>
+            <div id="balloonField" class="balloon-field"></div>
+            <button id="startGameBtn" class="pill-btn primary">Mulai Game~</button>
+            <p id="gameResult" class="game-result"></p>
+          </div>
+        </div>
+
+        <div class="surprise-card sc3 reveal">
+          <div class="sc-icon">🐾</div>
+          <h3>Kuis Bestie Sejati</h3>
+          <p>Seberapa kenal kamu sama persahabatan kita?</p>
+          <div id="quizArea" class="quiz-area">
+            <div id="quizQuestion" class="quiz-q"></div>
+            <div id="quizOptions" class="quiz-options"></div>
+            <div id="quizProgress" class="quiz-progress"></div>
+            <p id="quizResult" class="quiz-result"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="easter-hunt">
+        <p><em>Petunjuk easter egg terakhir: coba klik <span id="easterTrigger" class="easter-trigger" title="klik 5x">nama "Sekar"</span> di judul atas 5 kali...</em></p>
+        <div id="secretMessage" class="secret-message hidden">
+            <div class="secret-inner">
+            <h3>Pesan Rahasia Terbuka! 🐱🌸</h3>
+            <p>Kamu jeli banget! Sekar, kamu itu kayak kucing kecil & bunga cantik yang selalu bikin sekeliling jadi hangat. Tetap ceria ya! meow~ 🐾🌸</p>
+            <div class="secret-emoji-rain">🌸 🐾 🐱 🌸 🐾 🐟</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SURAT ===== -->
+  <section id="surat" class="section surat">
+    <div class="container narrow">
+      <div class="section-header">
+        <p class="section-eyebrow">Surat Untukmu 🐾</p>
+        <h2 id="suratTitle">Dari aku, untuk bestie tersayang</h2>
+        <p class="section-sub">Scroll pelan-pelan ya, biarin setiap katanya nyampe ke hati.</p>
+      </div>
+
+      <div class="letter-wrap">
+        <div class="letter-envelope" id="letterEnvelope">
+          <div class="le-flap"></div>
+          <div class="le-body">
+            <button id="openLetterBtn" class="pill-btn primary">Buka Surat 🐱</button>
+            <p class="le-hint">tap untuk membuka</p>
+          </div>
+        </div>
+
+        <article id="letterContent" class="letter-content hidden">
+          <div class="letter-paper">
+            <div class="letter-header">
+              <span class="letter-date">Untuk Sekar, di hari istimewanya 🎂</span>
+              <div class="letter-sticker">🐱</div>
+            </div>
+
+            <div class="letter-body" id="letterBody">
+              <p class="reveal">Halooo Sekar sayanggg!</p>
+              <p class="reveal">Happy birthday to my beautiful bestie, my day one, my twin, my everything. I'm soo incredible greatful that ur mom brought u into my life, u truly mean the world to me. I love u with all my heart, you're the most amazing kind of person I ever met, I'm soo glad that I met u. I hope we stay Friends forever.</p>
+              <p class="reveal">I wanted to wish u a happy birthday on ur special day, I hope u have a great birthday, I hope u have fun today with ur friends and family. And I'm sooo lucky to have u as my best friend, thank u for everything, u did for me ur the most amazing girl cutie s girl I ever seen. You are sooo amazing, I'm soo glad I have a true friend like u, thank u for everything. I love u sooo much, and once again happy birthday my love twin, I'm so happy to have you in my life. Idk what I would do without you. You are like my sistaa and literally the person I can tell Everything to. Thankyouu for being such a good friend, words can't express how much iloveyouu, happy birthday to one of the most funniest people I’ve ever met. even tho we’re not as close as before, I want you to know that you’ll always have a special place in my heart. I’ll never forget all the memories, laughter, and moment’s we shared, they’ll always mean so much to me. You’ve always had this light that makes people happy just by being around you, and I hope that light never fades.</p>
+              <p class="reveal">I may not always be there like before, but i’ll always be here by your side wishing you nothing but the best genuine happiness, success and peace in everything you do. you truly deserve it all love you so much azalea✨💗 to my beautiful bestfriend that has been here for me whenever I needed her she's the type of person who's kind pretty and the nices people I have ever met the most funniest people I love you so much even if fought alot happy birthday to my favorite people my sweet and kind friend! I hope you'll always surrendered. by love and happiness I hope this year brings you everything you have ever wished for. I'll always be proud of what you've done and will do having in my life feels blessing every day. 🥳🥰</p>
+              <div class="letter-ps reveal">
+                <p><strong>P.S.</strong> Coba tap stiker-stiker lucu di bawah ini~</p>
+                <div class="letter-stickers">
+                  <span class="ls" data-msg="Kamu cantik banget hari ini! 🌸">🌸</span>
+                  <span class="ls" data-msg="Peluk virtual buat kamu! 🐾">🐾</span>
+                  <span class="ls" data-msg="Semoga harimu seindah senyummu! 🐱">🐱</span>
+                  <span class="ls" data-msg="Kamu hebat, jangan lupa itu! 🌸">🌸</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="letter-footer">
+              <span>&mdash; Specially made for Sekar &mdash;</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PENUTUP ===== -->
+  <section id="penutup" class="section penutup">
+    <div class="container narrow">
+      <div class="section-header">
+        <p class="section-eyebrow">Make a Wish! 🎂</p>
+        <h2>Sekarang waktunya tiup lilin</h2>
+        <p class="section-sub">Tutup mata, buat harapan, lalu tiup lilinnya~</p>
+      </div>
+
+      <div class="cake-stage">
+        <div class="cake-wrap" id="cakeWrap">
+          <div class="candles" id="candles">
+            <div class="candle" data-lit="true"><div class="flame"></div><div class="wick"></div><div class="body"></div></div>
+            <div class="candle" data-lit="true"><div class="flame"></div><div class="wick"></div><div class="body"></div></div>
+            <div class="candle" data-lit="true"><div class="flame"></div><div class="wick"></div><div class="body"></div></div>
+          </div>
+          <div class="cake">
+            <div class="cake-top">
+              <div class="drip"></div><div class="drip d2"></div><div class="drip d3"></div>
+              <div class="sprinkles">🌸 🐾 🐱 🐾 🌸</div>
+            </div>
+            <div class="cake-middle">Happy Birthday Sekar!</div>
+            <div class="cake-bottom"></div>
+            <div class="cake-plate"></div>
+          </div>
+          <div class="cake-shadow"></div>
+        </div>
+
+        <div class="wish-controls">
+          <button id="blowBtn" class="cta-btn blow-btn">
+            Tiup Lilin! (Tap)
+          </button>
+          <p class="blow-hint">atau coba tiup beneran ke mic HP kamu (izin mic akan diminta)</p>
+          <div id="wishMessage" class="wish-message hidden">
+            <h3>Wish Granted!</h3>
+            <p>Semoga semua harapanmu terkabul, Sekar! Kamu deserve universe dan seisinya. 🐱🌸</p>
+            <div class="wish-confetti">🌸 🐾 🐱 🎂 🌸 🐾</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="closing-actions">
+        <button id="replayBtn" class="pill-btn primary">Putar Ulang dari Awal</button>
+        <p class="closing-note">Dibuat dengan penuh cinta dan sedikit air mata haru~</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Made with love for Sekar &bull; <span id="footerYear"></span> &bull; <span class="footer-easter" id="footerEaster" title="klik aku!">🐱</span> klik kucing ini 3x untuk kejutan terakhir!</p>
+  </footer>
+</main>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+<noscript><p style="text-align:center;padding:12px;background:#E0F2FE">Aktifkan JavaScript untuk melihat kejutan interaktif.</p></noscript>
+</body>
+</html>
